@@ -11,43 +11,22 @@
 
 <body>
     <div>
-        <h2>测试数据 (H5 页面)</h2>
+        <h2>测试数据 (H5 页面)1</h2>
         <button id="sendBtn">发送消息给小程序</button>
     </div>
     <script>
         // 点击按钮调用发送方法
         document.getElementById("sendBtn").addEventListener("click", function () {
-            alert('点击了')
             sendMessageToMiniProgram();
         });
         function sendMessageToMiniProgram() {
-            alert(wx)
-            alert(wx.miniProgram)
-            wx.miniProgram.postMessage({
-                        data: {
-                            key: 'value', // 你要发送的数据
-                            action: 'user_click',
-                            timestamp: new Date().getTime()
-                        }
-                    });
-                    console.log('消息已发送');
             // 首先判断是否在小程序环境中
-            // wx.miniProgram.getEnv(function (res) {
-            //     console.log('res',res)
-            //     if (res.miniprogram) {
-            //         // 在小程序环境中，发送消息
-            //         wx.miniProgram.postMessage({
-            //             data: {
-            //                 key: 'value', // 你要发送的数据
-            //                 action: 'user_click',
-            //                 timestamp: new Date().getTime()
-            //             }
-            //         });
-            //         console.log('消息已发送');
-            //     } else {
-            //         console.log('不在小程序环境中');
-            //     }
-            // });
+            window.parent.postMessage({
+                data: {
+                    msg: "来自H5的实时消息",
+                    time: new Date().toISOString()
+                }
+            }, "*");
         }
     </script>
 
