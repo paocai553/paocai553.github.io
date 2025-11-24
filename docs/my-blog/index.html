@@ -21,14 +21,9 @@
             sendMessageToMiniProgram();
         });
         function sendMessageToMiniProgram() {
-            alert(111,wx)
-            alert(222,wx.miniProgram)
-            // 首先判断是否在小程序环境中
-            wx.miniProgram.getEnv(function (res) {
-                console.log('res',res)
-                if (res.miniprogram) {
-                    // 在小程序环境中，发送消息
-                    wx.miniProgram.postMessage({
+            alert(wx)
+            alert(wx.miniProgram)
+            wx.miniProgram.postMessage({
                         data: {
                             key: 'value', // 你要发送的数据
                             action: 'user_click',
@@ -36,10 +31,23 @@
                         }
                     });
                     console.log('消息已发送');
-                } else {
-                    console.log('不在小程序环境中');
-                }
-            });
+            // 首先判断是否在小程序环境中
+            // wx.miniProgram.getEnv(function (res) {
+            //     console.log('res',res)
+            //     if (res.miniprogram) {
+            //         // 在小程序环境中，发送消息
+            //         wx.miniProgram.postMessage({
+            //             data: {
+            //                 key: 'value', // 你要发送的数据
+            //                 action: 'user_click',
+            //                 timestamp: new Date().getTime()
+            //             }
+            //         });
+            //         console.log('消息已发送');
+            //     } else {
+            //         console.log('不在小程序环境中');
+            //     }
+            // });
         }
     </script>
 
