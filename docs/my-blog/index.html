@@ -18,21 +18,22 @@
             sendMessageToMiniProgram();
         });
         function sendMessageToMiniProgram() {
+            console.log('window', window)
             console.log('window.wx', window.wx)
-            if (!window.wx || !wx.miniProgram) {
-                alert("当前环境不是微信内置浏览器，小程序通信不可用！");
-                return;
+            console.log('wx', wx)
+            console.log('wx.miniProgram', wx.miniProgram)
+            if (window.wx && wx.miniProgram) {
+                wx.miniProgram.postMessage({
+                    data: {
+                        type: "openLocation",
+                        longitude: 116.397428,
+                        latitude: 39.90923,
+                        name: "天安门",
+                        address: "北京市东城区天安门",
+                        scale: 17
+                    }
+                });
             }
-            wx.miniProgram.postMessage({
-                data: {
-                    type: "openLocation",
-                    longitude: 116.397428,
-                    latitude: 39.90923,
-                    name: "天安门",
-                    address: "北京市东城区天安门",
-                    scale: 17
-                }
-            });
 
             alert("消息已发送！");
         }
