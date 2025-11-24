@@ -17,11 +17,12 @@
     <script>
         // 点击按钮调用发送方法
         document.getElementById("sendBtn").addEventListener("click", function () {
+            alert('点击了')
             sendMessageToMiniProgram();
         });
         function sendMessageToMiniProgram() {
-            console.log(111,wx)
-            console.log(222,wx.miniProgram)
+            alert(111,wx)
+            alert(222,wx.miniProgram)
             // 首先判断是否在小程序环境中
             wx.miniProgram.getEnv(function (res) {
                 console.log('res',res)
