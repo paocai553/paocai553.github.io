@@ -11,7 +11,7 @@
 
 <body>
     <div>
-        <h2>测试数据 (H5 页面)3</h2>
+        <h2>测试数据 (H5 页面)4</h2>
         <button id="sendBtn">发送消息给小程序</button>
     </div>
     <script>
@@ -23,17 +23,17 @@
             sendMessageToMiniProgram();
         });
         function sendMessageToMiniProgram() {
-             document.addEventListener("WeixinJSBridgeReady", () => {
-                     document.addEventListener('UniAppJSBridgeReady', function () {
-                uni.postMessage({
-                    data: {
-                        action: '123'
-                    }
+            document.addEventListener("WeixinJSBridgeReady", () => {
+                document.addEventListener('UniAppJSBridgeReady', function () {
+                    uni.postMessage({
+                        data: {
+                            action: '123'
+                        }
+                    });
+                    uni.navigateBack()
                 });
-                uni.navigateBack()
-            });
-        }
-
+            })
+        };
     </script>
 
 </body>
