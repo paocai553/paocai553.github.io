@@ -1,49 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H5 → 小程序消息通信 Demo1</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H5 → 小程序通信 Demo</title>
+    <!-- 引入微信JS-SDK -->
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 </head>
 
 <body>
-  <div style="padding:20px;">
-    <h2>H5 页面（用于 Web-View）</h2>
-    <button id="sendBtn" style="padding:10px 20px;font-size:16px;">发送消息给小程序</button>
-  </div>
-
-  <script>
-    // 判断是否在小程序环境
-    function isInMiniProgram() {
-      return window.__wxjs_environment === 'miniprogram' 
-          || /miniProgram/i.test(navigator.userAgent);
-    }
-
-    document.getElementById('sendBtn').addEventListener('click', function() {
-
-      console.log("当前环境：", window.__wxjs_environment);
-      console.log("wx:", window.wx);
-      
-      // 非小程序环境直接提示
-      if (!isInMiniProgram() || !window.wx || !wx.miniProgram) {
-        alert("当前不在小程序 Web-View 内，无法发送消息！");
-        return;
-      }
-
-      wx.miniProgram.postMessage({
-        data: {
-          type: "openLocation",
-          longitude: 116.397428,
-          latitude: 39.90923,
-          name: "天安门",
-          address: "北京市东城区天安门",
-          scale: 17
+    <div>
+        <h2>测试数据 (H5 页面)</h2>
+        <button id="sendBtn">发送消息给小程序</button>
+    </div>
+    <script>
+        // 点击按钮调用发送方法
+        document.getElementById("sendBtn").addEventListener("click", function () {
+            sendMessageToMiniProgram();
+        });
+        function sendMessageToMiniProgram() {
+            // 首先判断是否在小程序环境中
+            wx.miniProgram.getEnv(function (res) {
+                if (res.miniprogram) {
+                    // 在小程序环境中，发送消息
+                    wx.miniProgram.postMessage({
+                        data: {
+                            key: 'value', // 你要发送的数据
+                            action: 'user_click',
+                            timestamp: new Date().getTime()
+                        }
+                    });
+                    console.log('消息已发送');
+                } else {
+                    console.log('不在小程序环境中');
+                }
+            });
         }
-      });
-
-      alert("消息已发送！");
-    });
-  </script>
+    </script>
 
 </body>
+
 </html>
