@@ -20,6 +20,8 @@
             sendMessageToMiniProgram();
         });
         function sendMessageToMiniProgram() {
+            consoloe.log(111,wx)
+            consoloe.log(222,wx.miniProgram)
             // 首先判断是否在小程序环境中
             wx.miniProgram.getEnv(function (res) {
                 console.log('res',res)
