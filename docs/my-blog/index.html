@@ -22,6 +22,7 @@
         function sendMessageToMiniProgram() {
             // 首先判断是否在小程序环境中
             wx.miniProgram.getEnv(function (res) {
+                console.log('res',res)
                 if (res.miniprogram) {
                     // 在小程序环境中，发送消息
                     wx.miniProgram.postMessage({
