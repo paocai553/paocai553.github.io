@@ -11,7 +11,7 @@
 
 <body>
     <div>
-        <h2>测试数据 (H5 页面)最终版</h2>
+        <h2>测试数据 (H5 页面)最终1</h2>
         <button id="sendBtn">送消息给小程序</button>
     </div>
     <script>
@@ -33,7 +33,9 @@
                         scale: 18, // 地图缩放级别
                     }
                 });
-                wx.miniProgram.navigateTo('/pages/test')
+                wx.miniProgram.navigateTo({
+                    url: '/pages/test'
+                });
             }
         }
     </script>
