@@ -11,7 +11,7 @@
 
 <body>
     <div>
-        <h2>测试数据1</h2>
+        <h2>测试数据2</h2>
         <button id="sendBtn">发消息给小程序</button>
     </div>
     <script>
@@ -30,7 +30,13 @@
                     }
                 });
                 wx.miniProgram.navigateTo({
-                    url: '/pages/index/test?data=' + JSON.stringify(data)
+                    url: '/pages/index/test?data=' + JSON.stringify({
+                        latitude: '39.90873966065374', // 目标纬度
+                        longitude: '116.3974673500868', // 目标经度
+                        name: '测试数据',
+                        address: '测试地址', // 目标地址
+                        scale: 18, // 地图缩放级别
+                    })
                 });
             }
         }
