@@ -11,15 +11,16 @@
 
 <body>
     <div>
-        <h2>测试数据3</h2>
+        <h2>测试数据4</h2>
         <button id="sendBtn">发消息给小程序</button>
     </div>
     <script>
         document.getElementById("sendBtn").addEventListener("click", function () {
-            console.log('点击测试')
+            console.log('点击测试1')
             sendMessageToMiniProgram();
         });
         function sendMessageToMiniProgram() {
+            console.log('点击测试2')
             if (window.wx && wx.miniProgram) {
                 wx.miniProgram.navigateTo({
                     url: '/pages/index/transfer?data=' + JSON.stringify({
