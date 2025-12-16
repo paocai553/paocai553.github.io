@@ -1,1 +1,1 @@
-import{o as e,e as s,w as t,f as a,d as o}from"./index-a38a99f3.js";import{_ as r}from"./_plugin-vue_export-helper.1b428a4d.js";const n=r({data:()=>({}),methods:{}},[["render",function(r,n,d,u,f,l){const p=a;return e(),s(p,null,{default:t((()=>[o(" 测试数据 ")])),_:1})}]]);export{n as default};
+import{o as e,e as s,w as t,f as a,d as o}from"./index-a38a99f3.js";import{_ as r}from"./test.js";const n=r({data:()=>({}),methods:{}},[["render",function(r,n,d,u,f,l){const p=a;return e(),s(p,null,{default:t((()=>[o(" 测试数据 ")])),_:1})}]]);export{n as default};
